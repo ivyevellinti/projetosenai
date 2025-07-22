@@ -53,14 +53,14 @@ class User
     }
 
     // LOGIN
-    public function getUserByEmail($email)
+    public function getUserByCpf($cpf)
     {
         try {
-            $sql = "SELECT * FROM user WHERE email = :email LIMIT 1";
+            $sql = "SELECT * FROM user WHERE cpf = :cpf LIMIT 1";
 
             $stmt = $this->db->prepare($sql);
 
-            $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+            $stmt->bindParam(":cpf", $cpf, PDO::PARAM_STR);
 
             $stmt->execute();
 
@@ -70,7 +70,7 @@ class User
     }
 
     // OBTER INFORMAÇÕES DO USUÁRIO
-    public function getUserInfo($id, $user_fullname, $email)
+    public function getUserInfo($id, $user_fullname, $email, $birth, $cpf)
     {
         try {
             $sql = "SELECT user_fullname, email, birth, cpf FROM user WHERE id = :id AND user_fullname = :user_fullname AND email = :email AND birth = :birth AND cpf = :cpf";
@@ -84,23 +84,6 @@ class User
             $stmt->bindParam(":cpf", $cpf, PDO::PARAM_STR);
 
             $stmt->execute();
-
-
-            /**
-             * fetch = querySelector();
-             * fetchAll = querySelectorAll();
-             * 
-             * FETCH_ASSOC:
-             * $user[
-             *  "user_fullname" => "teste",
-             *  "email" => "teste@example.com"
-             * ]
-             * 
-             * 
-             * 
-             * COMO OBTER INFORMAÇÕES:
-             * $user['user_fullname'];
-             */
 
             return $stmt->fetch(PDO::FETCH_ASSOC);
 
