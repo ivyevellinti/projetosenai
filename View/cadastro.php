@@ -63,10 +63,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="userPassword2" class="userPassword2">Confirme sua senha</label>
             <input name="userPassword2" type="text" id="userPassword2" placeholder="Repita sua senha">
 
-            <button class="entrar">Já tem uma conta? Entre</button>
-            <button>Entre com o Google</button>
+            <button class="entrar"><a href="../View/login.php">Já tem uma conta? Entre</a></button>
+            <button><a href="https://accounts.google.com/">Entre com o Google</a></button>
             <button class="cadastrar">Cadastrar</button>
         </form>
     </div>
+    <script src="../template/cadastro.js"></script>
 </body>
 </html>

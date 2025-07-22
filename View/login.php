@@ -40,11 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input name="cpf" type="text" id="userCPF" placeholder="Seu CPF">
             <label for="userPassword" class="userPassword">Senha</label>
             <input name="password" type="text" id="userPassword" placeholder="Sua Senha">
-            <button class="cad-se">Cadastre-se</button>
+            <button class="cad-se"><a href="../View/cadastro.php"></a>Cadastre-se</button>
             <button>Esqueceu a senha?</button>
-            <button>Entre com o Google</button>
+            <button><a href="https://accounts.google.com/">Entre com o Google</a></button>
             <button class="entrar">Entrar</button>
         </form>
     </div>
+    <script src="../template/login.js"></script>
 </body>
 </html>
