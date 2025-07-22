@@ -1,17 +1,20 @@
 {
-    "name": "ivy/clinica_senai",
+    "name": "ivy/clinica",
+    "description": "Cadastro de Clínica",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Ivy\\ClinicaSenai\\": "src/"
-        }
+            "Ivy\\clinica\\": "clinica/",
+            "Controller\\": "Controller/",
+            "Model\\": "Model/"
+        },
+        "files": [
+            "Config/configuration.php"
+        ]
     },
-    "authors": [
-        {
-            "name": "ivyevellin.ti",
-            "email": "ivy.evellin01@gmail.com"
-        }
-    ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": ">= 8.0",
+        "ext-mbstring": "*"
+    }
 }
