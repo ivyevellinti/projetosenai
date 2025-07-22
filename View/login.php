@@ -1,3 +1,27 @@
+<?php 
+require_once 'vendor/autoload.php';
+
+use Controller\UserController;
+
+$userController = new UserController();
+$loginMessage = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $cpf = $_POST['cpf'];
+    $password = $_POST['password'];
+
+    if ($userController->login($cpf, $password)) {
+        header('Location: View/home.php');
+        exit();
+    } else {
+        $loginMessage = "CPF ou senha incorretos.";
+    }
+}
+
+
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
