@@ -1,0 +1,17 @@
+{
+    "name": "ivy/clinica_senai",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Ivy\\ClinicaSenai\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ivyevellin.ti",
+            "email": "ivy.evellin01@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
