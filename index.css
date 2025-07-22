@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    background-image: url(../projetosenai/img/image\ 1.png);
+    height: 100vh;
+    width: 100%;
+}
+
+.conteudo{
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 4.0rem;
+    height: 50.0rem;
+    width: 135.0rem;
+}
+
+.entrar{
+    background-color: #1BF499;
+    font-family: 'Montserrat';
+    border-radius: 1.2rem;
+    width: 9.0rem;
+    height: 3.0rem;
+    font-size: 1.5rem;
+    border: none;
+    font-weight: bold;
+    color: #001768;
+}
+
+.cadastrar {
+    font-family: 'Montserrat';
+    border-radius: 1.2rem;
+    width: 10.0rem;
+    height: 3.0rem;
+    font-size: 1.5rem;
+    border: none;
+    font-weight: bold;
+    color: #001768;
+    text-align: center;
+}
