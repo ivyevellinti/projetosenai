@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cpf = $_POST['cpf'];
         $password = $_POST['password'];
 
-        $formatedDate  = date("dd-mm-aaaa", strtotime($birth));
+        $formatedDate  = date("Y-m-d", strtotime($birth));
 
 
         if ($userController->checkUserByCpf($cpf)) {
