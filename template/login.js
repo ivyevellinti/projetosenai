@@ -1,6 +1,6 @@
 const form = document.querySelector('form')
 const inputs = document.querySelectorAll('input')
-const button = document.querySelector('button')
+const button = document.querySelector('.entrar')
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()

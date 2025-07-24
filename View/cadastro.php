@@ -18,9 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($userController->checkUserByCpf($cpf)) {
             $registerUserMessage = "Já existe um usuário cadastrado com esse cpf";
+
+            echo "<script>alert('$registerUserMessage');</script>";
+            
         } else {
             if ($userController->createUser($user_fullname, $email, $formatedDate, $cpf, $password)) {
-                header('Location: login.php');
+                header('Location: View/login.php');
                 exit();
             } else {
                 $registerUserMessage = 'Erro ao registrar informações.';
@@ -57,12 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="cpf">CPF</label>
             <input type="text" name="cpf" id="cpf" placeholder="123.456.789-01" required>
 
-
             <label for="userPassword" class="userPassword">Senha</label>
             <input name="password" type="password" id="userPassword" placeholder="Sua Senha" required>
-
-            <!-- <label for="userPassword2" class="userPassword2">Confirme sua senha</label>
-            <input name="userPassword2" type="text" id="userPassword2" placeholder="Repita sua senha" required> -->
 
             <button class="entrar"><a href="../View/login.php">Já tem uma conta? Entre</a></button>
             <button><a href="https://accounts.google.com/">Entre com o Google</a></button>
