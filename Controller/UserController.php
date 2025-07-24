@@ -42,7 +42,7 @@ class UserController
     public function isLoggedIn(){
         return isset($_SESSION['id']);
     }
-    public function getUserData($id, $user_fullname, $email, $birth, $cpf){
+    public function dadosUsuario($id, $user_fullname, $email, $birth, $cpf){
         return $this->userModel->getUserInfo($id, $user_fullname, $email, $birth, $cpf);
     }
 }

@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
         } else {
             if ($userController->createUser($user_fullname, $email, $formatedDate, $cpf, $password)) {
-                header('Location: View/login.php');
+                header('Location: login.php');
                 exit();
             } else {
                 $registerUserMessage = 'Erro ao registrar informações.';

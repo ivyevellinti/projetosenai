@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     if ($userController->login($cpf, $password)) {
-        header('Location: View/perfil.php');
+        header('Location: perfil.php');
         exit();
     } else {
         $loginMessage = "CPF ou senha incorretos.";
