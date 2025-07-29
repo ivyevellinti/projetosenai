@@ -13,8 +13,8 @@
             <figure>
                 <img src="img/Group 17.png" alt="Simbolo da empresa">
             </figure>
-            <button class="cadastrar">Cadastre-se</button>
-            <button class="entrar">Entrar</button>
+            <button class="cadastrar"><a href="../projetosenai/View/cadastro.php">Cadastre-se</a></button>
+            <button class="entrar"><a href="../projetosenai/View/login.php">Entrar</a></button>
         </div>
      </main>
 </body>

@@ -37,6 +37,7 @@ body {
     border: none;
     font-weight: bold;
     color: #001768;
+    text-decoration: none;
 }
 
 .cadastrar {
@@ -49,4 +50,14 @@ body {
     font-weight: bold;
     color: #001768;
     text-align: center;
+    text-decoration: none;
 }
+
+a:link {
+    text-decoration: none;
+    color: #001768;
+  }
+  a:visited {
+    text-decoration: none;
+    color: #001768;
+  }
