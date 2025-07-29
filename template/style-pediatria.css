@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #101010;
+}
+
+.app-container {
+    margin: 0 auto;
+    background-color: #f4f8f9;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.header {
+    background-color: #001c60;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    border: 2px solid #00e99f;
+}
+
+.header h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.header p {
+    font-size: 12px;
+    margin: 0;
+    color: #d9d9d9;
+}
+
+.logo-brasil {
+    height: 35px;
+}
+
+.agendar-container {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.agendar-container h3 {
+    margin-top: 0;
+    color: #001c60;
+    margin-bottom: 20px;
+}
+
+.medico-box {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.medico-box h4 {
+    margin: 0 0 5px;
+    color: #001c60;
+    font-size: 16px;
+}
+
+.medico-box p {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+.medico-box .preco {
+    font-weight: bold;
+    color: #00a06e;
+    margin-bottom: 10px;
+}
+
+.horarios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.horarios button {
+    background-color: #00e99f;
+    color: #001c60;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.horarios button:hover {
+    background-color: #00c985;
+}
+
+.menu-button {
+    background: #00e99f;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #001c60;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
