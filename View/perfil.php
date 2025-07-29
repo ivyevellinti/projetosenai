@@ -6,20 +6,21 @@ use Controller\UserController;
 $userController = new UserController();
 $userInfo = null;
 
-if(!$userController->isLoggedIn()){
-    header('Location: login.php');
-    exit();
-}
+// if(!$userController->isLoggedIn()){
+//     header('Location: login.php');
+//     exit();
+//}
 
-$user_id = [$_SESSION['id']];
-$user_fullname = [$_SESSION['user_fullname']];
-$user_email = [$_SESSION['email']];
-$user_birth = [$_SESSION['formatedDate']];
-$user_cpf = [$_SESSION['cpf']];
-$user_password = [$_SESSION['password']];
+//TODAS ESSAS LINHAS ABAIXO ESTÃO DANDO ERRO DE VARIÁVEL INDEFINIDA
+$user_id = $_SESSION['id'];
+$user_fullname = $_SESSION['user_fullname'];
+$user_email = $_SESSION['email'];
+$user_birth = $_SESSION['formatedDate'];
+$user_cpf = $_SESSION['cpf'];
+$user_password = $_SESSION['password'];
 
 $userInfo = $userController->dadosUsuario($user_id);
-// echo $userInfo;
+echo $userInfo;
 ?>
 
 <!DOCTYPE html>
