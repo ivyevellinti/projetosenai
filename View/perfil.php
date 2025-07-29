@@ -18,13 +18,9 @@ $user_birth = [$_SESSION['formatedDate']];
 $user_cpf = [$_SESSION['cpf']];
 $user_password = [$_SESSION['password']];
 
-$userInfo = $userController->dadosUsuario($user_id, $user_fullname, $email, $formatedDate, $cpf);
+$userInfo = $userController->dadosUsuario($user_id);
 // echo $userInfo;
-
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">

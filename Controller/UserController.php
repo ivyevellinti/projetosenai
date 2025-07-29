@@ -16,7 +16,7 @@ class UserController
 
 
         // echo "hello";
-        return $this->userModel->registerUser($user_fullname, $email, $password,  $birth, $cpf);
+        return $this->userModel->registerUser($user_fullname, $email, $password, $birth, $cpf);
 
     }
 
@@ -42,8 +42,8 @@ class UserController
     public function isLoggedIn(){
         return isset($_SESSION['id']);
     }
-    public function dadosUsuario($id, $user_fullname, $email, $birth, $cpf){
-        return $this->userModel->getUserInfo($id, $user_fullname, $email, $birth, $cpf);
+    public function dadosUsuario($id){
+        return $this->userModel->getUserInfo($id);
     }
 }
 
