@@ -1,7 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Archivo:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     background-color: #101010;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
 .app-container {
@@ -54,68 +66,76 @@ body {
     height: 35px;
 }
 
-.services-list {
-    padding: 20px;
-    flex: 1;
-    overflow-y: auto;
-}
-
-.services-list h3 {
-    margin-top: 0;
-    color: #001c60;
-    margin-bottom: 20px;
-}
-
-.service-item {
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
-.service-item h4 {
-    margin: 0 0 8px;
-    color: #001c60;
-    font-size: 16px;
-}
-
-.service-item p {
-    margin: 0 0 10px;
-    font-size: 14px;
-    color: #555;
-}
-
-.service-item button {
-    background-color: #00e99f;
-    color: #001c60;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.service-item button:hover {
-    background-color: #00c985;
-}
-
-.menu-button {
-    background: #00e99f;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+.agendamento {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    font-size: 24px;
+    justify-content: center;
+    margin-top: 8.0rem;
+}
+
+.agende {
+        background-color: #ffffff;
+        width: 32rem;
+        height: 38rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3rem;
+        border: 1px dashed #05269B;
+        
+}
+
+.agende h2{
+    font-family: 'Open Sans';
+    font-size: 2rem;
     color: #001c60;
+}
+
+.h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 1rem; */
+    margin-bottom: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    font-family: 'Open Sans';
     font-weight: bold;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    font-size: 1.5rem;
+    color: #001c60;
+    width: 30rem;
+}
+
+input {
+    border-radius: 2rem;
+    border: none;
+    height: 3rem;
+    padding-left: 1rem;
+    background-color: #E7E7E7;
+}
+
+button {
+    border: none;
+    background-color: #05269B;
+    color: #64e4a4;
+    height: 3rem;
+    width: 10rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    cursor: pointer;
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     cursor: pointer;
 }

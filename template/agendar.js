@@ -1,19 +1,21 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Seleciona todos os botões "Agendar" dos serviços
-  const botoesAgendar = document.querySelectorAll(".service-item button");
+const form = document.querySelector('form')
+const inputs = document.querySelectorAll('input')
+const button = document.querySelector('.agendar')
 
-  botoesAgendar.forEach((botao) => {
-    botao.addEventListener("click", function () {
-      // Pegamos o título do serviço
-      const servico = botao.parentElement.querySelector("h4").textContent.trim();
+form.addEventListener('submit', (event) => {
+    event.preventDefault()
+})
 
-      if (servico === "Pediatria") {
-        // Redireciona para a página específica de Pediatria
-        window.location.href = "pediatria.php";
-      } else {
-        // Caso clique em outro serviço (você pode futuramente criar as páginas deles também)
-        alert(`Página de ${servico} ainda não está pronta.`);
-      }
-    });
-  });
-});
+button.addEventListener("click", () => {
+    function submit() {
+        form.submit()
+    }
+
+    const allFilled = Array.from(inputs).every(input => input.value.trim() !== '')
+
+    if (allFilled) {
+        submit()
+    } else {
+        alert("Preencha os dados da sua consulta!")
+    }
+})

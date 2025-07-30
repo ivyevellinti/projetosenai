@@ -13,8 +13,6 @@ class UserController
         if (empty($user_fullname) or empty($email) or empty($birth) or  empty($cpf) or empty($password)) {
             return false;
         }
-
-
         // echo "hello";
         return $this->userModel->registerUser($user_fullname, $email, $password, $birth, $cpf);
 
@@ -24,10 +22,10 @@ class UserController
     {
         return $this->userModel->getUserByCpf($cpf);
     }
+
     public function login($cpf, $password)
     {
         $user = $this->userModel->getUserByCpf($cpf);
-
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['id'] = $user['id'];

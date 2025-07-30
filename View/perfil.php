@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../vendor/autoload.php");
+require_once "../vendor/autoload.php";
 use Controller\UserController;
 
 $userController = new UserController();
@@ -12,19 +12,20 @@ $userInfo = null;
 //}
 
 //TODAS ESSAS LINHAS ABAIXO ESTÃO DANDO ERRO DE VARIÁVEL INDEFINIDA
-$user_id = $_SESSION['id'];
-$user_fullname = $_SESSION['user_fullname'];
-$user_email = $_SESSION['email'];
-$user_birth = $_SESSION['formatedDate'];
-$user_cpf = $_SESSION['cpf'];
-$user_password = $_SESSION['password'];
+// $id = $_SESSION['id'];
+var_dump($_SESSION);
+// $user_fullname = $_SESSION['user_fullname'];
+// $email = $_SESSION['email'];
+// $formatedDate = $_SESSION['formatedDate'];
+// $cpf = $_SESSION['cpf'];
+// $password = $_SESSION['password'];
 
-$userInfo = $userController->dadosUsuario($user_id);
+$userInfo = $userController->dadosUsuario($id);
 echo $userInfo;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -8,6 +8,7 @@ use Exception;
 class User
 {
     private $db;
+
     public function __construct(){
         $this->db = Connection::getInstance();
     }
@@ -39,17 +40,19 @@ class User
         } catch (PDOException $error) {
         }
     }
+
+    //PRECISO DESSA FUNÇÃO PARA MOSTRAR AS CONSULTAS AGENDADAS
     public function getUserInfo($id){
         try {
             //ALTEREI ESSA LINHA PQ ESTAVA COM ERRO DE QUANTIDADE DE VARIÁVEL EMBAIXO, "msg de erro"
-            $sql = "SELECT user_fullname, email, birth, cpf FROM user WHERE id = :id AND user_fullname = :user_fullname AND email = :email AND birth = :birth AND cpf = :cpf"; 
+            $sql = "SELECT user_fullname, email, birth, cpf FROM user WHERE id = :id LIMIT 1"; 
 
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-            $stmt->bindParam(":user_fullname", $user_fullname, PDO::PARAM_STR);
-            $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-            $stmt->bindParam(":birth", $birth, PDO::PARAM_STR);
-            $stmt->bindParam(":cpf", $cpf, PDO::PARAM_STR);
+            // $stmt->bindParam(":user_fullname", $user_fullname, PDO::PARAM_STR);
+            // $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+            // $stmt->bindParam(":birth", $birth, PDO::PARAM_STR);
+            // $stmt->bindParam(":cpf", $cpf, PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
             

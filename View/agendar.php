@@ -1,3 +1,24 @@
+<?php
+require_once "../vendor/autoload.php";
+
+use Controller\AgendamentoController;
+$agendamentoController = new AgendamentoController();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if(isset($_POST['nome_paciente'], $_POST['especialidade'], $_POST['data'],$_POST['horario'])){
+        $nome_paciente = $_POST['nome_paciente'];
+        $especialidade = $_POST['especialidade'];
+        $data = $_POST['data'];
+        $horario = $_POST['horario'];
+
+        $formatedDate  = date("Y-m-d", strtotime($data));
+    }
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,45 +35,38 @@
             <img src="" alt="Foto de perfil">
             <!-- colocar foto -->
             <div>
-                <h2>Olá, Maria Júlia</h2>
+                <h2>Olá, Maria Júlia (AJUSTAR COM PHP)</h2>
                 <p>Agendar Consulta</p>
             </div>
         </div>
-        <img src="" alt="Logo Brasil" class="logo-brasil"> 
+        <img src="../img/logo.png" alt="Logo Brasil" class="logo-brasil"> 
         <!-- colocar logo -->
     </div>
 
-    <div class="services-list">
-        <h3>Escolha o procedimento</h3>
-
-        <div class="service-item">
-            <h4>Pediatria</h4>
-            <p>Atendimento especializado para crianças e acompanhamento do desenvolvimento infantil.</p>
-            <button>Agendar</button>
-        </div>
-
-        <div class="service-item">
-            <h4>Nutricionista</h4>
-            <p>Orientação alimentar personalizada para promover saúde e bem-estar.</p>
-            <button>Agendar</button>
-        </div>
-
-        <div class="service-item">
-            <h4>Clínico Geral</h4>
-            <p>Consultas para diagnóstico e encaminhamento adequado a outras especialidades.</p>
-            <button>Agendar</button>
-        </div>
-
-        <div class="service-item">
-            <h4>Ginecologia</h4>
-            <p>Cuidados com a saúde da mulher em todas as fases da vida.</p>
-            <button>Agendar</button>
-        </div>
-
-        <div class="service-item">
-            <h4>Cardiologia</h4>
-            <p>Avaliação e acompanhamento da saúde do coração.</p>
-            <button> <a href="pediatria.php">Agendar</a></button>
+    <div class="agendamento">
+        <div class="agende">
+            <div class="h2">
+                <h2>Agende sua consulta:</h2>
+            </div>
+            <form method="POST" class="form" >
+             <!-- input de nome do paciente, especialidade, data e horário -->
+                 <label for="userName" class="userName">Digite seu nome:</label>
+                 <input name="name" type="text" id="userName" placeholder="Nome Completo">
+     
+                 <label for="userEspecialidade" class="userEspecialidade">Qual especialidade deseja marcar?</label>
+                 <input name="especialidade" type="text" id="userEspecialidade" placeholder="Ex.: Clínico Geral">
+     
+                 <label for="userData" class="userData">Qual a data?</label>
+                 <input name="Data" type="date" id="userData" placeholder="Ex.: Clínico Geral">
+     
+                 <label for="userHorário" class="userHorário">Qual o horário?</label>
+                 <input name="Horário" type="time" id="userHorário" placeholder="Ex.: Clínico Geral">
+     
+     
+                 <!-- <div class="btn"> -->
+                     <button type="submit" class="agendar">Agendar</button>
+                 <!-- </div> -->
+            </form>
         </div>
 
     </div>
