@@ -14,6 +14,7 @@ class UserController
             return false;
         }
         // echo "hello";
+        //REGISTRAR USUÁRIO
         return $this->userModel->registerUser($user_fullname, $email, $password, $birth, $cpf);
 
     }
@@ -30,8 +31,10 @@ class UserController
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['user_fullname'] = $user['user_fullname'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['formatedDate'] = $user [date('d/m/Y', strtotime($user['birth']))];
             $_SESSION['cpf'] = $user['cpf'];
-            var_dump($_SESSION);
+            
             return true;
         }
         return false;

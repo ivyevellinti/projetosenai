@@ -1,5 +1,4 @@
 <?php
-// session_start();
 require_once "../vendor/autoload.php";
 use Controller\AgendamentoController;
 $agendamentoController = new AgendamentoController();
@@ -12,12 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $data = $_POST['data'];
         $horario = $_POST['horario'];
 
-        $formatedDate  = date("Y-m-d", strtotime($data));
+        $dateFormated  = date("Y-m-d", strtotime($data));
         $formatedTime = date("H:i", strtotime($horario));
 
-// echo $nome_paciente, "<br>";
-// echo $especialidade, "<br>";// echo $data, "<br>";
-// echo $horario;
+echo $nome_paciente, "<br>";
+echo $especialidade, "<br>";
+echo $data, "<br>";
+echo $horario;
 
         if ($agendamentoController->criarAgendamento($nome_paciente, $especialidade, $data, $horario)) {
             echo $nome_paciente;
@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             } else {
                 $erroAgendamento = 'Erro ao tentar fazer o agendamento';
             }
-
     }
 }
 ?>
@@ -45,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 <div class="app-container">
     <div class="header">
         <div class="header-left">
-            <img src="../img/foto.png" alt="Foto de perfil">
+             <a href="perfil.php"><img src="../img/foto.png" alt="Foto de perfil"> </a>
             <!-- colocar foto -->
             <div>
                 <h2>Olá, Maria Júlia (AJUSTAR COM PHP)</h2>
@@ -76,10 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                  <input name="horario" type="time" id="userHorario" placeholder="Ex.: Clínico Geral">
      
      
-                 <!-- <div class="btn"> -->
-                     <button type="submit" class="agendar">Agendar</button>
-                 <!-- </div> -->
-
+                      <button type="submit" class="agendar">Agendar</button>
+              
             
             </form>
         </div>

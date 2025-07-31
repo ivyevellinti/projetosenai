@@ -11,15 +11,18 @@ class AgendamentoController{
         $this->agendamentoModel = new Agendamento();
     }
 
-    public function criarAgendamento($nome_paciente, $espacialidade, $data, $horario){
+    //ESSA FUNÇÃO É RESPONSÁVEL POR ENVIAR OS DADOS AO BANCO DE DADOS, MAS NÃO ESTÁ FUNCIONANDO
+    //Sophia e anna luisa "espacialidade"
+    public function criarAgendamento($nome_paciente, $especialidade, $data, $horario){
         if (empty($nome_paciente) or empty($especialidade) or empty ($data) or empty ($horario)){
             return false;
         }
-        
-        return $this->agendamentoModel->consultasAgendadas($nome_paciente, $espacialidade, $data, $horario);
+            return $this->agendamentoModel->consultasAgendadas($nome_paciente, $especialidade, $data, $horario);
     }
 
-
+    public function dadosAgendamento($id){
+        return $this->agendamentoModel->getAgendamento($id);
+    }
 
 }
 
