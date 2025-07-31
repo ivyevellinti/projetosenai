@@ -13,7 +13,7 @@ class Agendamento {
         $this->db = Connection::getInstance();
     }
 
-    public function consultasAgendadas(){
+    public function consultasAgendadas($nome_paciente, $especialidade, $data, $horario){
         try{
         $sql = 'INSERT INTO agendamento (nome_paciente, especialidade, data, horario) VALUES (:nome_paciente, :especialidade, :data, :horario)';
         $stmt = $this->db->prepare($sql);
@@ -27,7 +27,6 @@ class Agendamento {
             return false;
         }
     }
-    
 
 }
 ?>

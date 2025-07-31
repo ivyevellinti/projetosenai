@@ -15,6 +15,7 @@ button.addEventListener("click", () => {
 
     if (allFilled) {
         submit()
+        // alert("Agendamento realizado com sucesso!")
     } else {
         alert("Preencha os dados da sua consulta!")
     }

@@ -1,8 +1,9 @@
 <?php
+// session_start();
 require_once "../vendor/autoload.php";
-
 use Controller\AgendamentoController;
 $agendamentoController = new AgendamentoController();
+$erroAgendamento = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_POST['nome_paciente'], $_POST['especialidade'], $_POST['data'],$_POST['horario'])){
@@ -12,11 +13,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $horario = $_POST['horario'];
 
         $formatedDate  = date("Y-m-d", strtotime($data));
+        $formatedTime = date("H:i", strtotime($horario));
+
+// echo $nome_paciente, "<br>";
+// echo $especialidade, "<br>";// echo $data, "<br>";
+// echo $horario;
+
+        if ($agendamentoController->criarAgendamento($nome_paciente, $especialidade, $data, $horario)) {
+            echo $nome_paciente;
+                header('Location: perfil.php');
+                exit();
+            } else {
+                $erroAgendamento = 'Erro ao tentar fazer o agendamento';
+            }
+
     }
 }
-
 ?>
-
 
 
 <!DOCTYPE html>
@@ -32,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 <div class="app-container">
     <div class="header">
         <div class="header-left">
-            <img src="" alt="Foto de perfil">
+            <img src="../img/foto.png" alt="Foto de perfil">
             <!-- colocar foto -->
             <div>
                 <h2>Olá, Maria Júlia (AJUSTAR COM PHP)</h2>
@@ -51,21 +64,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             <form method="POST" class="form" >
              <!-- input de nome do paciente, especialidade, data e horário -->
                  <label for="userName" class="userName">Digite seu nome:</label>
-                 <input name="name" type="text" id="userName" placeholder="Nome Completo">
+                 <input name="nome_paciente" type="text" id="userName" placeholder="Nome Completo">
      
                  <label for="userEspecialidade" class="userEspecialidade">Qual especialidade deseja marcar?</label>
                  <input name="especialidade" type="text" id="userEspecialidade" placeholder="Ex.: Clínico Geral">
      
                  <label for="userData" class="userData">Qual a data?</label>
-                 <input name="Data" type="date" id="userData" placeholder="Ex.: Clínico Geral">
+                 <input name="data" type="date" id="userData" placeholder="Ex.: Clínico Geral">
      
                  <label for="userHorário" class="userHorário">Qual o horário?</label>
-                 <input name="Horário" type="time" id="userHorário" placeholder="Ex.: Clínico Geral">
+                 <input name="horario" type="time" id="userHorario" placeholder="Ex.: Clínico Geral">
      
      
                  <!-- <div class="btn"> -->
                      <button type="submit" class="agendar">Agendar</button>
                  <!-- </div> -->
+
+            
             </form>
         </div>
 

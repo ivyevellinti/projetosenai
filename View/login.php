@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     if ($userController->login($cpf, $password)) {
-        header('Location: perfil.php');
+        header('Location: agendar.php');
         exit();
     } else {
-        $loginMessage = "CPF ou senha incorretos.";
+        $loginMessage = "CPF ou senha incorretos. Tente novamente";
         echo "<script>alert('$loginMessage');</script>";
     }
 }
