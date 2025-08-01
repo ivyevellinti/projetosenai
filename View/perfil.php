@@ -27,7 +27,7 @@ $especialidade = isset($_SESSION['especialidade']) ? $_SESSION['especialidade'] 
 $dateFormated = isset($_SESSION['dateFormated']) ? $_SESSION['dateFormated'] : ':dateFormated';
 $horario = isset($_SESSION['horario']) ? $_SESSION['horario'] : ':horario';
 
-$suaConsulta = $agendamentoController->dadosAgendamento($id);
+$suaConsulta = $agendamentoController->dadosAgendamento($id_agnd);
 
 
 ?>
@@ -57,7 +57,7 @@ $suaConsulta = $agendamentoController->dadosAgendamento($id);
     </div>
 
     <div class="profile-data">
-        <h3>Meus Dados</h3>
+        <h3 >Meus Dados</h3>
         <?php if($userInfo): ?>
 
         <div class="info-item">
@@ -84,33 +84,46 @@ $suaConsulta = $agendamentoController->dadosAgendamento($id);
     </div>
 
     <div class="agendamento_data">
-    <h3 style="margin-left: 2.0rem; color: #001c60">Minhas Consultas</h3>
+    <h3 style=" color: #001c60">Minhas Consultas</h3>
     
     <?php if($suaConsulta): ?>
 
-        <div class="agendamento-iten">
+        <div class="info-item">
             <strong>Paciente: </strong>
             <span> <?php echo htmlspecialchars($suaConsulta['nome_paciente']) ?> </span>
         </div>
 
-         <div class="agendamento-iten">
+         <div class="info-item">
             <strong>Especialidade: </strong>
             <span> <?php echo htmlspecialchars($suaConsulta['especialidade']) ?> </span>
         </div>
 
-         <div class="agendamento-iten">
-            <strong>Data da Colsulta: </strong>
+         <div class="info-item">
+            <strong>Data da Consulta: </strong>
             <span> <?php echo htmlspecialchars($suaConsulta['dateFormated']) ?> </span>
         </div>
 
-         <div class="agendamento-iten">
+         <div class="info-item">
             <strong>Horário: </strong>
             <span> <?php echo htmlspecialchars($suaConsulta['horario']) ?> </span>
         </div>
 
     </div>
     <?php endif; ?>
-     
+        <a style="
+    background-color: #05269B;
+    color: #64e4a4;
+    font-size: 1.5rem;
+    border-radius: 5rem;
+    text-decoration: none;
+    width: 17.0rem;
+    height: 2.0rem;
+    display: flex;
+    justfy-content: center;
+    align-itens: center;
+    text-align: center;
+    
+    " href="agendar.php">+ Agendar nova consulta</a>
 
 </div>
 

@@ -1,8 +1,20 @@
 <?php
+session_start();
 require_once "../vendor/autoload.php";
+
+use Controller\UserController;
 use Controller\AgendamentoController;
+
+$userController = new UserController();
 $agendamentoController = new AgendamentoController();
+
+$userInfo = null;
 $erroAgendamento = '';
+
+$id = isset($_SESSION['id']) ? $_SESSION['id'] : ':id';
+$user_fullname = isset($_SESSION['user_fullname']) ? $_SESSION['user_fullname'] : ':user_fullname';
+
+$userInfo = $userController->dadosUsuario($id);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_POST['nome_paciente'], $_POST['especialidade'], $_POST['data'],$_POST['horario'])){
@@ -13,11 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         $dateFormated  = date("Y-m-d", strtotime($data));
         $formatedTime = date("H:i", strtotime($horario));
-
-echo $nome_paciente, "<br>";
-echo $especialidade, "<br>";
-echo $data, "<br>";
-echo $horario;
 
         if ($agendamentoController->criarAgendamento($nome_paciente, $especialidade, $data, $horario)) {
             echo $nome_paciente;
@@ -46,10 +53,15 @@ echo $horario;
         <div class="header-left">
              <a href="perfil.php"><img src="../img/foto.png" alt="Foto de perfil"> </a>
             <!-- colocar foto -->
+          
+              <?php if($userInfo): ?>
             <div>
-                <h2>Olá, Maria Júlia (AJUSTAR COM PHP)</h2>
+                <h2>Olá, <?php echo htmlspecialchars($userInfo['user_fullname']) ?> </h2>
                 <p>Agendar Consulta</p>
             </div>
+             <?php endif; ?>
+
+                
         </div>
         <img src="../img/logo.png" alt="Logo Brasil" class="logo-brasil"> 
         <!-- colocar logo -->

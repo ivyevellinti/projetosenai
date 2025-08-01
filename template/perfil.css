@@ -10,8 +10,6 @@ body {
     background-color: #f4f8f9;
     overflow: hidden;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
     position: relative;
 }
 
@@ -56,13 +54,19 @@ body {
 
 .profile-data {
     padding: 20px;
-    flex: 1;
+
 }
 
 .profile-data h3 {
     margin-top: 0;
     color: #001c60;
 }
+
+.agendamento_data{
+    padding: 20px;
+}
+
+
 
 .info-item {
     background: #ffffff;
@@ -107,4 +111,3 @@ body {
     color: #555;
     font-size: 14px;
 }
-
