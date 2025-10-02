@@ -20,11 +20,15 @@ class UserTest extends TestCase {
       $this->assertTrue($userResult);
      }
 
-     #[PHPUnit\Framework\Attributes\Test]
-     public function it_shouldnt_be_able_to_create_user_with_a_existent_cpf() {
-      //PERGUNTAR A PROFESSORA COMO VERIFICA SE JÁ EXISTE CPF CADASTRADO
-     }
+   //   #[PHPUnit\Framework\Attributes\Test]
+   //   public function it_shouldnt_be_able_to_create_user_with_a_existent_cpf() {
+   //    $this->mockUserModel->method('registerUser')->willReturn(true);
+   //    $this->userController->createUser('Ivy Evellin', 'ivy@example.com', '2007-10-03','123.456.789-10', '123');
+   //    $this->assertTrue(false);
+   //   }
 
+     
+     #[PHPUnit\Framework\Attributes\Test]
      public function it_should_be_able_to_sign_in(){
       $this->mockUserModel->method('getUserByCpf')->willReturn([
          'id' => 1,
@@ -40,7 +44,7 @@ class UserTest extends TestCase {
 
       $this->assertEquals(1, $_SESSION['id']);
       $this->assertEquals('Ivy Evellin', $_SESSION['user_fullname']);
-      $this->assertEquals('123.456.789-10', $_SESSION['123.456.789-10']);
+      $this->assertEquals('123.456.789-10', $_SESSION['cpf']);
      }
 }
 
