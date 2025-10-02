@@ -6,8 +6,8 @@ use Exception;
 class UserController
 {
     private $userModel;
-    public function __construct(){
-        $this->userModel = new User();
+    public function __construct(User $userModel){
+        $this->userModel = $userModel;
     }
     public function createUser($user_fullname, $email, $birth, $cpf, $password){
         if (empty($user_fullname) or empty($email) or empty($birth) or  empty($cpf) or empty($password)) {
