@@ -70,8 +70,7 @@ class UserTest extends TestCase {
 
       #[\PHPUnit\Framework\Attributes\Test]
       public function it_shouldnt_be_able_to_create_user_with_empty_or_null_inputs(){
-        $this->userController->method('createUser')->willThrowException(new \Exception('Preencha todos os campos!'));
-        $this->expectExceptionMessage('Preencha todos os campos!');
+      $this->expectExceptionMessage('Preencha todos os campos!');
 
      $this->userController->createUser(
         'Ivy Evellin',
@@ -131,11 +130,9 @@ class UserTest extends TestCase {
           'id' => 1,
           'cpf' => '123.456.789-10',
           'password' => password_hash('123443563457', PASSWORD_DEFAULT)
-        ]);
-        $userResult = $this->userController->login('123.456.789-10', '123443563457');
-
-        $this->expectExceptionMessage('Cpf ou Senha incorretos');
-        $this->assertFalse($userResult);
+         ]);
+         $this->expectExceptionMessage('Cpf ou Senha incorretos');
+         $this->userController->login('123.456.789-10', '1234435634578');
         }
 
 
@@ -160,9 +157,8 @@ class UserTest extends TestCase {
           'cpf' => null,
           'password' => password_hash('123', PASSWORD_DEFAULT)
         ]);
-        $userResult = $this->userController->login(null, '123');
+        $this->userController->login(null, '123');
         $this->expectExceptionMessage('Preencha suas credenciais!');
-        $this->assertFalse($userResult);
         }
 
 }

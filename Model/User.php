@@ -42,6 +42,7 @@ class User
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $error) {
+            throw new Exception('Erro ao tentar pegar usuário pelo CPF: ' . $error);
         }
     }
 

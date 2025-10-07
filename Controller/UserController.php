@@ -37,7 +37,7 @@ class UserController
             
             return true;
         }
-        return false;
+        throw new Exception('Cpf ou Senha incorretos');
     }
 
     public function isLoggedIn(){
