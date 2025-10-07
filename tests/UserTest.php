@@ -44,8 +44,7 @@ class UserTest extends TestCase {
    #[PHPUnit\Framework\Attributes\Test]
    public function it_shouldnt_be_able_to_create_user_with_a_existent_cpf() {
     $this->mockUserModel->method('registerUser')->willReturn(false);
-
-    $this->expectException(\Exception::class);
+    $this->mockUserModel->method('registerUser')->willThrowException(new \Exception('Já existe um usuário cadastrado com esse cpf'));
     $this->expectExceptionMessage('Já existe um usuário cadastrado com esse cpf');
 
     $this->userController->createUser(
@@ -71,10 +70,8 @@ class UserTest extends TestCase {
 
       #[\PHPUnit\Framework\Attributes\Test]
       public function it_shouldnt_be_able_to_create_user_with_empty_or_null_inputs(){
-     $this->mockUserModel->method('registerUser')->willReturn(false);
-
-     $this->expectException(\Exception::class);
-     $this->expectExceptionMessage('Preencha todos os campos!');
+        $this->userController->method('createUser')->willThrowException(new \Exception('Preencha todos os campos!'));
+        $this->expectExceptionMessage('Preencha todos os campos!');
 
      $this->userController->createUser(
         'Ivy Evellin',

@@ -11,7 +11,7 @@ class UserController
     }
     public function createUser($user_fullname, $email, $birth, $cpf, $password){
         if (empty($user_fullname) or empty($email) or empty($birth) or  empty($cpf) or empty($password)) {
-            return false;
+            throw new Exception("Preencha todos os campos!");
         }
         // echo "hello";
         //REGISTRAR USUÁRIO

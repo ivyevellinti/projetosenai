@@ -16,6 +16,9 @@ class User
 
     public function registerUser($user_fullname, $email, $password, $birth, $cpf){
         try {
+            if ($this->getUserByCpf($cpf)){
+                throw new Exception('Já existe um usuário cadastrado com esse cpf');
+            }
             $sql = 'INSERT INTO user (user_fullname, email, password, birth, cpf) VALUES (:user_fullname, :email, :password, :birth, :cpf)';
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $this->db->prepare($sql);
