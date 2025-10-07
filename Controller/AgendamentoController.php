@@ -7,8 +7,8 @@ class AgendamentoController{
 
     private $agendamentoModel;
 
-    public function __construct(){
-        $this->agendamentoModel = new Agendamento();
+    public function __construct(Agendamento $agendamentoModel){
+        $this->agendamentoModel = $agendamentoModel;
     }
 
     //ESSA FUNÇÃO É RESPONSÁVEL POR ENVIAR OS DADOS AO BANCO DE DADOS, MAS NÃO ESTÁ FUNCIONANDO
