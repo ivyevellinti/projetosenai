@@ -26,18 +26,22 @@ class UserController
 
     public function login($cpf, $password)
     {
-        $user = $this->userModel->getUserByCpf($cpf);
-
-        if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['user_fullname'] = $user['user_fullname'];
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['formatedDate'] = $user [date('d/m/Y', strtotime($user['birth']))];
-            $_SESSION['cpf'] = $user['cpf'];
-            
-            return true;
+        if(isset($cpf) && isset($password)){
+            $user = $this->userModel->getUserByCpf($cpf);
+    
+            if ($user && password_verify($password, $user['password'])) {
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['user_fullname'] = $user['user_fullname'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['formatedDate'] = $user [date('d/m/Y', strtotime($user['birth']))];
+                $_SESSION['cpf'] = $user['cpf'];
+                
+                return true;
+            }
+            throw new Exception('Cpf ou Senha incorretos');
+        } else {
+            throw new Exception('Preencha suas credenciais!');
         }
-        throw new Exception('Cpf ou Senha incorretos');
     }
 
     public function isLoggedIn(){

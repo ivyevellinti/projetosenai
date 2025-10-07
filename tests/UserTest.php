@@ -150,15 +150,15 @@ class UserTest extends TestCase {
 
 
 
-
+        #[PHPUnit\Framework\Attributes\Test]
         public function it_shouldnt_login_with_empty_or_null_inputs(){
          $this->mockUserModel->method('getUserByCpf')->willReturn([
           'id' => 1,
           'cpf' => null,
           'password' => password_hash('123', PASSWORD_DEFAULT)
         ]);
-        $this->userController->login(null, '123');
         $this->expectExceptionMessage('Preencha suas credenciais!');
+        $this->userController->login(null, '123');
         }
 
 }
